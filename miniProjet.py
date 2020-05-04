@@ -1,12 +1,12 @@
 import sqlite3 as sql
 import matplotlib
 matplotlib.use('TkAgg')
-conn=sql.connect("/Users/macbook/Documents/S6/miniProjet/student.db")
+conn=sql.connect("/Users/macbook/Documents/S6/miniProjet/student.sqlite")
 cur=conn.cursor()
 
 # creation des tables
-
-"""cur.execute(" CREATE TABLE IF NOT EXISTS Auteur ( Nauteur Integer,nomA text,prenomA text,nationaliteA text,PRIMARY KEY(Nauteur) ) ")
+"""
+cur.execute(" CREATE TABLE IF NOT EXISTS Auteur ( Nauteur Integer,nomA text,prenomA text,nationaliteA text,PRIMARY KEY(Nauteur) ) ")
 cur.execute(" CREATE TABLE IF NOT EXISTS Livre ( Nlivre Integer,num_ISBN Integer,titre text,nbPages Integer,anneeS Integer,prix real, PRIMARY KEY(Nlivre) ) ")
 cur.execute(" CREATE TABLE IF NOT EXISTS Possede (Nlivre Integer, Nauteur Integer, FOREIGN KEY(Nlivre) REFERENCES Livre(Nlivre), FOREIGN KEY(Nauteur) REFERENCES Auteur(Nauteur) ) ")
 cur.execute(" CREATE TABLE IF NOT EXISTS Pret ( Npret Integer,num_etu Integer,Nlivre Integer,datePret text,dateRetour text,DateRetourPrevue text, PRIMARY KEY(Npret), FOREIGN KEY(num_etu) REFERENCES Etudiant(num_etu), FOREIGN KEY(Nlivre) REFERENCES Livre(Nlivre) ) ")
@@ -71,8 +71,8 @@ cur.execute(" INSERT INTO Resultat VALUES (9,3,13) ")
 
 cur.execute(" INSERT INTO Resultat VALUES (10,1,17) ")
 cur.execute(" INSERT INTO Resultat VALUES (10,2,18) ")
-cur.execute(" INSERT INTO Resultat VALUES (10,3,20) ")"""
-
+cur.execute(" INSERT INTO Resultat VALUES (10,3,20) ")
+"""
 def insBU(nomE):
 
     cur.execute("SELECT Etudiant.dateInscriptionBU FROM Etudiant WHERE nomE=:nomE", {'nomE':nomE} )
@@ -171,7 +171,8 @@ ax.pie([noteSup14(),note1214(),noteInf8(),note810(),note1012()],
         autopct="%1.1f"),
 plt.title("Graphe de Moyenne Generale")
 plt.show()  
-"""def nbEleves(note):
+"""
+def nbEleves(note):
     cur.execute("SELECT num_etu FROM Resultat GROUP BY num_etu HAVING AVG(note)=:note",{'note':note})
     return len(cur.fetchall())
 
@@ -180,6 +181,5 @@ hauteurs_barres = [8,12,8,5,4,3,2,1,0,0]
 largeur_barres = 0.1
 plt.bar(x, hauteurs_barres, largeur_barres) 
 plt.show()"""
-
 
 conn.close()
