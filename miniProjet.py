@@ -72,7 +72,7 @@ cur.execute(" INSERT INTO Resultat VALUES (9,3,13) ")
 cur.execute(" INSERT INTO Resultat VALUES (10,1,17) ")
 cur.execute(" INSERT INTO Resultat VALUES (10,2,18) ")
 cur.execute(" INSERT INTO Resultat VALUES (10,3,20) ")
-"""
+
 cur.execute(" INSERT INTO Resultat VALUES (11,1,9.75) ")
 cur.execute(" INSERT INTO Resultat VALUES (11,2,8.5) ")
 cur.execute(" INSERT INTO Resultat VALUES (11,3,9) ")
@@ -83,7 +83,7 @@ cur.execute(" INSERT INTO Resultat VALUES (12,3,17) ")
 
 cur.execute(" INSERT INTO Resultat VALUES (13,3,9.5) ")
 cur.execute(" INSERT INTO Resultat VALUES (13,3,14) ")
-cur.execute(" INSERT INTO Resultat VALUES (13,3,13.5) ")
+cur.execute(" INSERT INTO Resultat VALUES (13,3,13.5) ")"""
 def insBU(nomE):
 
     cur.execute("SELECT Etudiant.dateInscriptionBU FROM Etudiant WHERE nomE=:nomE", {'nomE':nomE} )
@@ -192,5 +192,5 @@ hauteurs_barres = [8,12,8,5,4,3,2,1,0,0]
 largeur_barres = 0.1
 plt.bar(x, hauteurs_barres, largeur_barres) 
 plt.show()"""
-conn.commit()
+
 conn.close()
